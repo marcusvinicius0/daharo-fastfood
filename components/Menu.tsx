@@ -69,7 +69,6 @@ export default function Menu({ open = false }: MenuProps) {
               </li>
             </Link>
           </ul>
-          <hr className="border-gray-200 mt-3" />
         </nav>
 
         <span className="flex flex-col justify-center items-center space-y-6">
@@ -81,7 +80,7 @@ export default function Menu({ open = false }: MenuProps) {
           </span>
         </span>
 
-        <footer className="w-full fixed bottom-0">
+        <footer className="w-full fixed bottom-0 pb-2">
           <hr className="border-gray-200" />
 
           <div className="flex flex-col justify-center mt-6 space-y-4">
