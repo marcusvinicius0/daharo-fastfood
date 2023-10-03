@@ -1,48 +1,35 @@
 "use client";
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 
-import paellaFoodImage from "@/assets/image/seafood-paella.webp";
-type Props = {};
-
+import paellaFoodImage from "@/assets/image/seafood-paella.png";
+import shrimppastaImage from "@/assets/image/shrimp-pasta.png";
+import aussieSeaFoodImage from "@/assets/image/aussie_seafood.png";
+import coconutShrimpFoodImage from "@/assets/image/homemade-coconut-shrimp.png";
 import Image from "next/image";
-import Carousel from "nuka-carousel";
 
 const availableDishes = [
   {
     img: paellaFoodImage,
-    title: "Panang Curry",
-    price: "$10.00",
+    title: "Paella",
+    price: "R$9.99",
+  },
+  {
+    img: paellaFoodImage,
+    title: "Shrimp pasta",
+    price: "R$14.99",
+  },
+  {
+    img: paellaFoodImage,
+    title: "Aussie seafood",
+    price: "R$19.99",
   },
   {
     img: paellaFoodImage,
     title: "Panang Curry",
-    price: "$10.00",
-  },
-  {
-    img: paellaFoodImage,
-    title: "Panang Curry",
-    price: "$10.00",
-  },
-  {
-    img: paellaFoodImage,
-    title: "Panang Curry",
-    price: "$10.00",
-  },
-  {
-    img: paellaFoodImage,
-    title: "Panang Curry",
-    price: "$10.00",
-  },
-  {
-    img: paellaFoodImage,
-    title: "Panang Curry",
-    price: "$10.00",
+    price: "R$10.00",
   },
 ];
 
-export default function SliderCarousel({}: Props) {
+export default function SliderCarousel() {
   const settings = {
     dots: true,
     infinite: true,
@@ -52,18 +39,21 @@ export default function SliderCarousel({}: Props) {
   };
 
   return (
-    <Carousel
-    adaptiveHeight={true}
-    wrapAround={true}
-    >
+    <article className="flex flex-col justify-center items-center md:flex-row">
       {availableDishes.map((dish) => {
         return (
-          <div key={dish.title} className="flex flex-col justify-center items-center space-y-1">
-            <Image src={dish.img} alt={dish.title} width={80} height={80} />
-            <h3 className="font-semibold uppercase tracking-[2px]">{dish.title}</h3>
+          <div
+            key={dish.title}
+            className="flex flex-col justify-center items-center space-y-1 w-[10.62rem]"
+          >
+            <Image src={dish.img} alt={dish.title} width={120} height={120} className="object-contain" />
+            <h3 className="font-semibold uppercase tracking-[2px]">
+              {dish.title}
+            </h3>
+            <small>{dish.price}</small>
           </div>
         );
       })}
-    </Carousel>
+    </article>
   );
 }

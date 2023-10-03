@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from "react";
 import clsx from "clsx";
 
-type Appearance = "default" | "standard" | "form";
+export type Appearance = "default" | "standard" | "form";
 
 interface HambProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   appearance?: Appearance;
@@ -15,13 +15,13 @@ export const ButtonHamb = ({
 }: HambProps) => {
   const wrapperAppearance = {
     default: "bg-gray-100",
-    standard: "bg-white/20",
-    form: "bg-white hidden",
+    standard: "bg-black/20",
+    form: "bg-black hidden",
   };
 
   const baseAppearance = {
     default: "bg-gray-500",
-    standard: "bg-white",
+    standard: "bg-red-500",
     form: "bg-inherit",
   };
 
