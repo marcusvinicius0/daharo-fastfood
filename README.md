@@ -1,6 +1,14 @@
+## Daharo Foods
+
+Daharo fastfood is a complete restaurant system that makes life easier for owners.
+
+<img src="assets/image/daharo-apr-3.png" />
+<img src="assets/image/daharo-apr-2.png" />
+<img src="assets/image/daharo-apr-1.png" />
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Inicializando
 
 First, run the development server:
 
