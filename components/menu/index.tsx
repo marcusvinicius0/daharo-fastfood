@@ -39,6 +39,8 @@ const path = [
 ];
 
 export default function Menu({ open = false }: MenuProps) {
+  const userAuthenticated = false;
+
   return (
     <motion.div
       initial="hidden"
@@ -76,13 +78,22 @@ export default function Menu({ open = false }: MenuProps) {
 
         <motion.ul variants={FADE_DOWN} className="w-full max-w-[48.37rem]">
           <motion.li>
-            <button className="rounded-full bg-red-500 text-white shadow-md w-full h-12 hover:bg-red-500/90">
-              SAIR
-            </button>
+            {userAuthenticated ? (
+              <button className="rounded-full bg-red-500 text-white shadow-md w-full h-12 hover:bg-red-500/90">
+                SAIR
+              </button>
+            ) : (
+              <button className="rounded-full bg-red-500 text-white shadow-md w-full h-12 hover:bg-red-500/90">
+                ENTRAR
+              </button>
+            )}
           </motion.li>
         </motion.ul>
 
-        <motion.div variants={FADE_DOWN} className="mx-auto w-full fixed bottom-0">
+        <motion.div
+          variants={FADE_DOWN}
+          className="mx-auto w-full fixed bottom-0"
+        >
           <Footer />
         </motion.div>
       </div>
