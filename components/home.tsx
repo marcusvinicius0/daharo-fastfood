@@ -1,12 +1,10 @@
 import Image from "next/image";
-import React from "react";
 
 import hambImage from "@/assets/image/delicious-hamb.png";
 import hamb1Image from "@/assets/image/hambur.png";
-import SliderCarousel from "./SliderCarousel";
+import SliderCarousel from "./slider";
 
 import Link from "next/link";
-import errors from "@/utils/errors";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -14,32 +12,7 @@ import {
   YoutubeIcon,
 } from "lucide-react";
 
-// import { AvailableDishesProps } from "@/types";
-
-// interface Props {
-//   getAvailableDishes: () => AvailableDishesProps[];
-// }
-
-// vai para contexto global, recebe interface Props para tipagem
-async function getAvailableDishes() {
-  const response = await fetch(`${process.env.NEXT_AUTH}/availabledishes`, {
-    method: "GET",
-    next: {
-      revalidate: 60 * 60 * 24, // 24h
-    },
-  });
-
-  if (!response.ok) {
-    return errors.server;
-  }
-
-  const data = await response.json();
-  return data;
-}
-
-export default function HomePage() {
-  // const availabeDishes = await getAvailableDishes();
-
+export default async function HomePage() {
   return (
     <div className="h-full w-full">
       <div className="flex flex-col justify-center items-center">
@@ -87,7 +60,7 @@ export default function HomePage() {
 
         <section className="mt-10 md:mt-20 max-w-[47.5rem]">
           <div className="">
-            {/* <span>
+          {/* <span>
             <Image src="" alt="" />
           </span> */}
 

@@ -5,14 +5,13 @@ import React from "react";
 type NavLinkProps = {
   href: Route<string> | URL;
   label: string;
+  onClick: () => void;
 };
 
-export default function NavLink({ label, href }: NavLinkProps) {
+export const NavLink = ({ label, href }: NavLinkProps) => {
   return (
-    <div>
-      <Link href={href} passHref legacyBehavior>
-        {label}
-      </Link>
-    </div>
+    <Link href={href} passHref legacyBehavior className="w-full">
+      {label}
+    </Link>
   );
-}
+};
