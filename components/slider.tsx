@@ -1,9 +1,7 @@
 "use client";
 
 import paellaFoodImage from "@/assets/image/seafood-paella.png";
-import shrimppastaImage from "@/assets/image/shrimp-pasta.png";
-import aussieSeaFoodImage from "@/assets/image/aussie_seafood.png";
-import coconutShrimpFoodImage from "@/assets/image/homemade-coconut-shrimp.png";
+
 import Image from "next/image";
 
 const availableDishes = [
@@ -39,7 +37,7 @@ export default function SliderCarousel() {
   };
 
   return (
-    <article className="flex flex-col justify-center items-center md:flex-row">
+    <article className="flex flex-col justify-center items-center space-y-10 md:space-y-0 md:flex-row md:gap-12">
       {availableDishes.map((dish) => {
         return (
           <div
@@ -47,7 +45,7 @@ export default function SliderCarousel() {
             className="flex flex-col justify-center items-center space-y-1 w-[10.62rem]"
           >
             <Image src={dish.img} alt={dish.title} width={120} height={120} className="object-contain" />
-            <h3 className="font-semibold uppercase tracking-[2px]">
+            <h3 className="font-semibold uppercase tracking-[2px] text-center">
               {dish.title}
             </h3>
             <small>{dish.price}</small>

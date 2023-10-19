@@ -1,13 +1,15 @@
 "use client";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 import { motion } from "framer-motion";
 import { Route } from "next";
-import NavLink from "./navLink";
-import Footer from "../Footer";
+import { NavLink } from "./navLink";
+import Footer from "../footer";
+import Link from "next/link";
 
 type MenuProps = {
   open?: boolean;
+  setOpenMenu: Dispatch<SetStateAction<boolean>>;
 };
 
 const FADE_DOWN = {
@@ -38,9 +40,8 @@ const path = [
   },
 ];
 
-export default function Menu({ open = false }: MenuProps) {
+export const Menu = ({ open = false, setOpenMenu }: MenuProps) => {
   const userAuthenticated = false;
-
   return (
     <motion.div
       initial="hidden"
@@ -69,8 +70,13 @@ export default function Menu({ open = false }: MenuProps) {
                 variants={FADE_DOWN}
                 key={path}
                 className="w-full flex items-center justify-center p-1.5 rounded-full text-gray-700 border border-gray-400/20 cursor-pointer hover:bg-slate-50/80"
+                onClick={() => setOpenMenu(false)}
               >
-                <NavLink href={path as Route} label={label} />
+                <NavLink
+                  href={path as Route}
+                  label={label}
+                  onClick={() => {}}
+                />
               </motion.li>
             );
           })}
@@ -83,9 +89,13 @@ export default function Menu({ open = false }: MenuProps) {
                 SAIR
               </button>
             ) : (
-              <button className="rounded-full bg-red-500 text-white shadow-md w-full h-12 hover:bg-red-500/90">
-                ENTRAR
-              </button>
+              <>
+                <Link href="/entrar" onClick={() => setOpenMenu(false)}>
+                  <button className="rounded-full bg-red-500 text-white shadow-md w-full h-12 hover:bg-red-500/90">
+                    ENTRAR
+                  </button>
+                </Link>
+              </>
             )}
           </motion.li>
         </motion.ul>
@@ -99,4 +109,4 @@ export default function Menu({ open = false }: MenuProps) {
       </div>
     </motion.div>
   );
-}
+};

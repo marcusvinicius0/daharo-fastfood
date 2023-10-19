@@ -20,8 +20,8 @@ export const ButtonHamb = ({
   };
 
   const baseAppearance = {
-    default: "bg-gray-500",
-    standard: "bg-red-500",
+    default: "bg-red-500",
+    standard: "bg-gray-500",
     form: "bg-inherit",
   };
 

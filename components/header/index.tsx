@@ -2,9 +2,11 @@
 
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import Menu from "../menu/index";
+import { Menu } from "../menu/index";
 import { Appearance, ButtonHamb } from "./hamb";
 import clsx from "clsx";
+
+import Link from "next/link";
 
 export default function Header({}) {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
@@ -33,11 +35,6 @@ export default function Header({}) {
     };
   }, []);
 
-  const hambAppearance = () => {
-    if (openMenu) return "default";
-    return "standard" as Appearance;
-  };
-
   const styled = {
     header: clsx(
       openMenu && "bg-white",
@@ -46,15 +43,22 @@ export default function Header({}) {
     ),
     logoText: clsx(
       !openMenu && !bgHeader && "text-black",
-      (openMenu || bgHeader) && "text-black",
+      (openMenu || bgHeader) && "text-red-500",
       "font-semibold text-lg"
     ),
+  };
+
+  const hambAppearance = () => {
+    if (openMenu) return "default";
+    return "standard" as Appearance;
   };
 
   return (
     <header ref={ref} className={styled.header}>
       <div className="flex w-full py-4 px-6 items-center justify-between border-b border-b-white/20 sm:py-6 sm:px-12 lg:px-24">
-        <p className={styled.logoText}>DAHARO</p>
+        <Link href="/" className={styled.logoText}>
+          <h4>DAHARO</h4>
+        </Link>
 
         <ButtonHamb
           appearance={hambAppearance()}
@@ -65,7 +69,7 @@ export default function Header({}) {
 
       {openMenu && (
         <div className="relative flex -z-50">
-          <Menu open={openMenu} />
+          <Menu open={openMenu} setOpenMenu={setOpenMenu} />
         </div>
       )}
     </header>
